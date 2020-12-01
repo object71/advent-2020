@@ -1,12 +1,13 @@
 cmake_minimum_required(VERSION 3.16)
 set(CMAKE_TOOLCHAIN_FILE ./vcpkg/scripts/buildsystems/vcpkg.cmake)
 
-project(VcpkgSkeleton)
+project(Advent2020)
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(raylib CONFIG REQUIRED)
+find_package(fmt CONFIG REQUIRED)
+find_package(PythonInterp REQUIRED)
 
 if(WIN32)
     add_compile_definitions(WINDOWS=1)
@@ -27,3 +28,9 @@ else()
 endif(${CMAKE_BUILD_TYPE} MATCHES Debug)
 
 add_subdirectory(Main)
+
+add_custom_target(Solution ALL
+                  COMMENT "Executiong post build scripts \"${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/scripts/post_build.py\""
+                  COMMAND ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/scripts/post_build.py ${Main_BINARY_DIR}
+                  WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+add_dependencies(Solution Main)
