@@ -4,7 +4,7 @@ add_executable(Main
                src/Main.cpp
                src/Main.h
                src/Utilites.h
-               src/Utilites.cpp)
+               src/Utilites.cpp src/AdventDayOne.cpp src/AdventDayOne.h)
 
 #target_include_directories(Main PRIVATE ${raylib_INCLUDE_DIRS})
 
