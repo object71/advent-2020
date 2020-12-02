@@ -32,11 +32,12 @@ else()
     add_compile_definitions(NDEBUG=1)
 endif(${CMAKE_BUILD_TYPE} MATCHES Debug)
 
+add_subdirectory(Advent)
 add_subdirectory(Main)
 add_subdirectory(Tests)
 
 add_custom_target(Solution ALL
                   COMMENT "Executiong post build scripts \"${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/scripts/post_build.py\""
                   COMMAND ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/scripts/post_build.py ${Main_BINARY_DIR}
+                  COMMAND ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/scripts/post_build.py ${Tests_BINARY_DIR}
                   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
-add_dependencies(Solution Main)

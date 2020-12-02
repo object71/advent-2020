@@ -4,10 +4,10 @@ add_executable(Tests
                src/Tests.cpp
                )
 
-target_link_libraries(Tests PUBLIC
+target_link_libraries(Tests PRIVATE
                       GTest::gmock
                       GTest::gtest
-                      MainLib)
+                      Advent)
 
 add_test(
         NAME Tests
