@@ -6,8 +6,12 @@ project(Advent2020)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+enable_testing()
+
 find_package(fmt CONFIG REQUIRED)
 find_package(spdlog CONFIG REQUIRED)
+find_package(GTest CONFIG REQUIRED)
+
 find_package(PythonInterp REQUIRED)
 
 if(WIN32)
@@ -29,6 +33,7 @@ else()
 endif(${CMAKE_BUILD_TYPE} MATCHES Debug)
 
 add_subdirectory(Main)
+add_subdirectory(Tests)
 
 add_custom_target(Solution ALL
                   COMMENT "Executiong post build scripts \"${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/scripts/post_build.py\""
