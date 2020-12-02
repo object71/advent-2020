@@ -6,13 +6,16 @@ project(Advent2020)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-enable_testing()
 
 find_package(fmt CONFIG REQUIRED)
 find_package(spdlog CONFIG REQUIRED)
 find_package(GTest CONFIG REQUIRED)
+find_package(Catch2 CONFIG REQUIRED)
 
 find_package(PythonInterp REQUIRED)
+
+include(CTest)
+include(Catch)
 
 if(WIN32)
     add_compile_definitions(WINDOWS=1)
@@ -40,4 +43,5 @@ add_custom_target(Solution ALL
                   COMMENT "Executiong post build scripts \"${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/scripts/post_build.py\""
                   COMMAND ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/scripts/post_build.py ${Main_BINARY_DIR}
                   COMMAND ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/scripts/post_build.py ${Tests_BINARY_DIR}
+                  COMMAND ctest
                   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})

@@ -2,14 +2,12 @@
 // Created by capit on 12/2/2020.
 //
 
-#include <gtest/gtest.h>
+#define CATCH_CONFIG_MAIN
 
-TEST(UtilityTests, ValidateTestingWorks) {
-    ASSERT_TRUE(true);
+#include "catch.hpp"
+
+TEST_CASE("Testing framework is working fine", "[Catch2]")
+{
+    REQUIRE(true);
 }
 
-int main(int argc, char** argv) {
-    testing::InitGoogleTest(&argc, argv);
-    
-    return RUN_ALL_TESTS();
-}

@@ -5,12 +5,7 @@ add_executable(Tests
                )
 
 target_link_libraries(Tests PRIVATE
-                      GTest::gmock
-                      GTest::gtest
+                      Catch2::Catch2
                       Advent)
 
-add_test(
-        NAME Tests
-        COMMAND Tests
-)
-
+catch_discover_tests(Tests)
