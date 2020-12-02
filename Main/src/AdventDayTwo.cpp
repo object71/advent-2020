@@ -37,14 +37,10 @@ uint32_t PartOne()
                     spdlog::error("Search for regex failed");
                 }
             
-                uint32_t first;
-                uint32_t second;
-                char character;
+                uint32_t first = stoi(matches[1].str());
+                uint32_t second = stoi(matches[2].str());
+                char character = matches[3].str()[0];
                 std::string password = matches[4].str();
-                
-                std::stringstream(matches[1].str()) >> first;
-                std::stringstream(matches[2].str()) >> second;
-                std::stringstream(matches[3].str()) >> character;
                 
                 if (second < first)
                 {
@@ -88,15 +84,11 @@ uint32_t PartTwo()
                 {
                     spdlog::error("Search for regex failed");
                 }
-                
-                uint32_t first;
-                uint32_t second;
-                char character;
+            
+                uint32_t first = stoi(matches[1].str());
+                uint32_t second = stoi(matches[2].str());
+                char character = matches[3].str()[0];
                 std::string password = matches[4].str();
-                
-                std::stringstream(matches[1].str()) >> first;
-                std::stringstream(matches[2].str()) >> second;
-                std::stringstream(matches[3].str()) >> character;
                 
                 first--;
                 second--;
