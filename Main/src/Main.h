@@ -7,5 +7,6 @@
 
 #include "Utilites.h"
 #include "AdventDayOne.h"
+#include "AdventDayTwo.h"
 
 #endif //RAYLIBDOOM_MAIN_H

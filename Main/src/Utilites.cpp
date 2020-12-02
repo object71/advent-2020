@@ -11,8 +11,29 @@ void ReadFileAsNumbers(std::string_view filename, std::vector<uint32_t>& outVect
     file.open(filename.data());
     
     uint32_t number;
-    while(file >> number) {
+    while (file >> number)
+    {
         outVector.push_back(number);
     }
     
+    file.close();
+}
+
+void ReadFileLineByLine(std::string_view filename, std::function<void(const std::string&)> callback)
+{
+    std::ifstream file;
+    file.open(filename.data());
+    
+    if (!file.is_open())
+    {
+        spdlog::error("Couldn't open file");
+    }
+    
+    std::string line;
+    while (std::getline(file, line))
+    {
+        callback(line);
+    }
+    
+    file.close();
 }

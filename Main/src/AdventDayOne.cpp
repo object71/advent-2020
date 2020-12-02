@@ -74,15 +74,15 @@ uint32_t AdventDayOneAlt(uint32_t targetNumber)
 
 void ExecuteDayOne()
 {
-    std::cout << fmt::format("Day 1 Challenge") << std::endl;
-    std::cout << fmt::format("---------------") << std::endl;
+    spdlog::info("Day 1 Challenge");
+    spdlog::info("---------------");
     
     uint32_t targetNumber = 2020;
     uint32_t result = AdventDayOne(targetNumber);
-    uint32_t resultAlt = AdventDayOneAlt(targetNumber);
+    uint32_t resultAlt = AdventDayOneAlt(targetNumber);;
     
-    std::cout << fmt::format("Result is: {}", result) << std::endl;
-    std::cout << fmt::format("Alt result is: {}", resultAlt) << std::endl;
-    std::cout << fmt::format("---------------") << std::endl;
-    std::cout << std::endl;
+    spdlog::info("Result one: {}", result);
+    spdlog::info("Result two: {}", resultAlt);
+    spdlog::info("---------------");
+    spdlog::info("");
 }

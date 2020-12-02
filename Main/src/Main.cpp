@@ -1,13 +1,12 @@
 #include "Main.h"
 
-
-
 int main()
 {
-    std::cout << fmt::format("Advent 2020 Programming") << std::endl;
-    std::cout << std::endl;
+    spdlog::info("Advent 2020 Programming");
+    spdlog::info("");
     
     ExecuteDayOne();
+    ExecuteDayTwo();
     
     return 0;
 }
