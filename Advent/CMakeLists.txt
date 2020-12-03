@@ -3,10 +3,10 @@ project(Advent LANGUAGES CXX)
 add_library(Advent STATIC
             src/Utilites.h
             src/Utilites.cpp
-            src/AdventDayOne.cpp
-            src/AdventDayOne.h
-            src/AdventDayTwo.cpp
-            src/AdventDayTwo.h)
+            src/DayOne.cpp
+            src/DayOne.h
+            src/DayTwo.cpp
+            src/DayTwo.h src/DayThree.cpp src/DayThree.h)
 
 target_link_libraries(Advent PUBLIC fmt::fmt spdlog::spdlog)
 

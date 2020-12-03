@@ -6,7 +6,8 @@
 #define RAYLIBDOOM_MAIN_H
 
 #include "Utilites.h"
-#include "AdventDayOne.h"
-#include "AdventDayTwo.h"
+#include "DayOne.h"
+#include "DayTwo.h"
+#include "DayThree.h"
 
 #endif //RAYLIBDOOM_MAIN_H

@@ -2,7 +2,7 @@
 // Created by capit on 12/1/2020.
 //
 
-#include "AdventDayOne.h"
+#include "DayOne.h"
 
 uint32_t AdventDayOne(uint32_t targetNumber)
 {

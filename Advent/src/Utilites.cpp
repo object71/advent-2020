@@ -37,3 +37,19 @@ void ReadFileLineByLine(std::string_view filename, std::function<void(const std:
     
     file.close();
 }
+
+void ReadFileAsMatrix(std::string_view filename, std::vector<int8_t>& outVector, uint32_t& width, uint32_t& height)
+{
+    width = 0;
+    height = 0;
+    ReadFileLineByLine(
+            filename, [&](const std::string& line) {
+                width = line.size();
+                height++;
+                
+                for(const char& character : line) {
+                    outVector.push_back(character);
+                }
+            }
+    );
+}

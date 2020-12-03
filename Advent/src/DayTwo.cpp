@@ -2,7 +2,7 @@
 // Created by capit on 12/2/2020.
 //
 
-#include "AdventDayTwo.h"
+#include "DayTwo.h"
 #include <regex>
 #include <sstream>
 
