@@ -13,7 +13,7 @@ TEST_CASE("Testing framework is working fine", "[Catch2]")
     REQUIRE(true);
 }
 
-TEST_CASE("Testing advent day three function", "[day3]")
+TEST_CASE("Testing advent day three function", "[advent]")
 {
     std::vector<int8_t> map;
     uint32_t width;

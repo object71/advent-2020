@@ -42,6 +42,12 @@ add_subdirectory(Main)
 
 if (IS_MAIN)
     add_subdirectory(Tests)
+    
+    include(InstallRequiredSystemLibraries)
+    set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/README.md")
+    set(CPACK_PACKAGE_VERSION_MAJOR "1")
+    set(CPACK_PACKAGE_VERSION_MINOR "0")
+    include(CPack)
 endif ()
 
 add_custom_target(Solution ALL

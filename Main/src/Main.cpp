@@ -7,7 +7,8 @@ int main()
     
 //    ExecuteDayOne();
 //    ExecuteDayTwo();
-    ExecuteDayThree();
+//    ExecuteDayThree();
+    ExecuteDayFour();
     
     return 0;
 }

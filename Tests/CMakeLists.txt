@@ -2,7 +2,7 @@ project(Tests LANGUAGES CXX)
 
 add_executable(Tests
                src/Tests.cpp
-               )
+               src/DayFourTest.cpp)
 
 target_link_libraries(Tests PRIVATE
                       Catch2::Catch2
