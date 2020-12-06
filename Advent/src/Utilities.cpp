@@ -2,7 +2,7 @@
 // Created by capit on 12/1/2020.
 //
 
-#include "Utilites.h"
+#include "Utilities.h"
 #include <fstream>
 
 void ReadFileAsNumbers(std::string_view filename, std::vector<uint32_t>& outVector)

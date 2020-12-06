@@ -5,7 +5,7 @@
 #ifndef VCPKGSKELETON_DAYTHREE_H
 #define VCPKGSKELETON_DAYTHREE_H
 
-#include "Utilites.h"
+#include "Utilities.h"
 
 void ExecuteDayThree();
 

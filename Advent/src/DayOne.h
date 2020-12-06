@@ -5,7 +5,7 @@
 #ifndef VCPKGSKELETON_DAYONE_H
 #define VCPKGSKELETON_DAYONE_H
 
-#include "Utilites.h"
+#include "Utilities.h"
 
 uint32_t AdventDayOne(uint32_t targetNumber);
 uint32_t AdventDayOneAlt(uint32_t targetNumber);

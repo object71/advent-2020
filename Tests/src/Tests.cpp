@@ -4,7 +4,7 @@
 
 #define CATCH_CONFIG_MAIN
 
-#include <Utilites.h>
+#include <Utilities.h>
 #include <DayThree.h>
 #include "catch.hpp"
 

@@ -2,8 +2,8 @@
 // Created by capit on 12/1/2020.
 //
 
-#ifndef VCPKGSKELETON_UTILITES_H
-#define VCPKGSKELETON_UTILITES_H
+#ifndef VCPKGSKELETON_UTILITIES_H
+#define VCPKGSKELETON_UTILITIES_H
 
 #include <string>
 #include <string_view>
@@ -23,4 +23,4 @@ bool NumberWithinValues(T value, T min, T max) {
     return value >= min && value <= max;
 }
 
-#endif //VCPKGSKELETON_UTILITES_H
+#endif //VCPKGSKELETON_UTILITIES_H

@@ -5,10 +5,13 @@
 #ifndef RAYLIBDOOM_MAIN_H
 #define RAYLIBDOOM_MAIN_H
 
-#include "Utilites.h"
+#include "Utilities.h"
 #include "DayOne.h"
 #include "DayTwo.h"
 #include "DayThree.h"
 #include <DayFour.h>
+#include <DayFive.h>
+#include <DaySix.h>
+
 
 #endif //RAYLIBDOOM_MAIN_H
