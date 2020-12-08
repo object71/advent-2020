@@ -10,7 +10,8 @@ int main()
     //    ExecuteDayThree();
     //    ExecuteDayFour();
     //    ExecuteDayFive();
-        ExecuteDaySix();
+    //        ExecuteDaySix();
+    ExecuteDaySeven();
     
     return 0;
 }
