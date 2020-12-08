@@ -13,6 +13,7 @@
 #include <DayFive.h>
 #include <DaySix.h>
 #include <DaySeven.h>
+#include <DayEight.h>
 
 
 #endif //RAYLIBDOOM_MAIN_H

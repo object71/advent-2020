@@ -17,6 +17,7 @@
 void ReadFileAsNumbers(std::string_view filename, std::vector<uint32_t>& outVector);
 void ReadFileAsMatrix(std::string_view filename, std::vector<int8_t>& outVector, uint32_t& width, uint32_t& height);
 void ReadFileLineByLine(std::string_view filename, std::function<void(const std::string&)> callback);
+void ReadFileAsLines(std::string_view filename, std::vector<std::string>& outVector);
 
 template<typename T>
 bool NumberWithinValues(T value, T min, T max) {
