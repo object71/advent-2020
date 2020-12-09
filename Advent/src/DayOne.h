@@ -7,8 +7,12 @@
 
 #include "Utilities.h"
 
-uint32_t AdventDayOne(uint32_t targetNumber);
-uint32_t AdventDayOneAlt(uint32_t targetNumber);
+int32_t AdventDayOne(int32_t targetNumber);
+int32_t AdventDayOneAlt(int32_t targetNumber);
+
+bool FindTwoNumbersThatSumToTarget(
+        int32_t targetNumber, std::vector<int32_t>& inputDayOne, int32_t& numberOne, int32_t& numberTwo
+);
 
 void ExecuteDayOne();
 

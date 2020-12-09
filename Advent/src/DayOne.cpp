@@ -4,11 +4,23 @@
 
 #include "DayOne.h"
 
-uint32_t AdventDayOne(uint32_t targetNumber)
+int32_t AdventDayOne(int32_t targetNumber)
 {
-    std::vector<uint32_t> inputDayOne;
+    std::vector<int32_t> inputDayOne;
     ReadFileAsNumbers("./data/input_day_one.txt", inputDayOne);
     
+    int32_t numberOne = 0;
+    int32_t numberTwo = 0;
+    
+    FindTwoNumbersThatSumToTarget(targetNumber, inputDayOne, numberOne, numberTwo);
+    
+    return numberOne * numberTwo;
+}
+
+bool FindTwoNumbersThatSumToTarget(
+        int32_t targetNumber, std::vector<int32_t>& inputDayOne, int32_t& numberOne, int32_t& numberTwo
+)
+{
     std::sort(inputDayOne.begin(), inputDayOne.end());
     
     for (uint32_t k = inputDayOne.size() - 1; k > 0; k--)
@@ -26,27 +38,30 @@ uint32_t AdventDayOne(uint32_t targetNumber)
             
             if (currentN + testedN == targetNumber)
             {
-                return currentN * testedN;
+                numberOne = currentN;
+                numberTwo = testedN;
+                return true;
             }
         }
     }
-    return 0;
+    
+    return false;
 }
 
-uint32_t AdventDayOneAlt(uint32_t targetNumber)
+int32_t AdventDayOneAlt(int32_t targetNumber)
 {
-    std::vector<uint32_t> inputDayOne;
+    std::vector<int32_t> inputDayOne;
     ReadFileAsNumbers("./data/input_day_one.txt", inputDayOne);
     
     std::sort(inputDayOne.begin(), inputDayOne.end());
     
     for (uint32_t x = inputDayOne.size() - 1; x > 0; x--)
     {
-        uint32_t firstN = inputDayOne[x];
+        int32_t firstN = inputDayOne[x];
         
         for (uint32_t y = 0; y != x - 1; y++)
         {
-            uint32_t secondN = inputDayOne[y];
+            int32_t secondN = inputDayOne[y];
             
             if (firstN + secondN > targetNumber)
             {
@@ -55,7 +70,7 @@ uint32_t AdventDayOneAlt(uint32_t targetNumber)
             
             for (uint32_t z = y + 1; z != x; z++)
             {
-                uint32_t thirdN = inputDayOne[z];
+                int32_t thirdN = inputDayOne[z];
                 
                 if (firstN + secondN + thirdN > targetNumber)
                 {
