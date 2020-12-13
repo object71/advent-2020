@@ -5,12 +5,12 @@
 #include "Utilities.h"
 #include <fstream>
 
-void ReadFileAsNumbers(std::string_view filename, std::vector<int32_t>& outVector)
+void ReadFileAsNumbers(std::string_view filename, std::vector<int>& outVector)
 {
     std::ifstream file;
     file.open(filename.data());
     
-    int32_t number;
+    int number;
     while (file >> number)
     {
         outVector.push_back(number);
@@ -38,7 +38,7 @@ void ReadFileLineByLine(std::string_view filename, std::function<void(const std:
     file.close();
 }
 
-void ReadFileAsMatrix(std::string_view filename, std::vector<int8_t>& outVector, uint32_t& width, uint32_t& height)
+void ReadFileAsMatrix(std::string_view filename, std::vector<char>& outVector, unsigned int& width, unsigned int& height)
 {
     width = 0;
     height = 0;
@@ -62,4 +62,21 @@ void ReadFileAsLines(std::string_view filename, std::vector<std::string>& outVec
                 outVector.push_back(line);
             }
     );
+}
+
+bool GetRegexMatches(const std::string& regex, const std::string& input, std::vector<std::string>& groups)
+{
+    const std::regex rule(regex);
+    
+    std::match_results<std::string::const_iterator> matches;
+    if (!std::regex_search(input, matches, rule))
+    {
+        return false;
+    }
+    
+    for(const std::string& str : matches) {
+        groups.push_back(str);
+    }
+    
+    return true;
 }

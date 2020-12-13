@@ -6,16 +6,16 @@
 #include <regex>
 #include <sstream>
 
-uint32_t PartOne();
-uint32_t PartTwo();
+unsigned int PartOne();
+unsigned int PartTwo();
 
 void ExecuteDayTwo()
 {
     spdlog::info("Day 2 Challenge");
     spdlog::info("---------------");
     
-    uint32_t result = PartOne();
-    uint32_t resultAlt = PartTwo();
+    unsigned int result = PartOne();
+    unsigned int resultAlt = PartTwo();
     
     spdlog::info("Result one: {}", result);
     spdlog::info("Result two: {}", resultAlt);
@@ -23,9 +23,9 @@ void ExecuteDayTwo()
     spdlog::info("");
 }
 
-uint32_t PartOne()
+unsigned int PartOne()
 {
-    uint32_t result = 0;
+    unsigned int result = 0;
     
     std::regex reg("(\\d+)-(\\d+) (\\D): (.*)");
     
@@ -37,8 +37,8 @@ uint32_t PartOne()
                     spdlog::error("Search for regex failed");
                 }
             
-                uint32_t first = stoi(matches[1].str());
-                uint32_t second = stoi(matches[2].str());
+                unsigned int first = stoi(matches[1].str());
+                unsigned int second = stoi(matches[2].str());
                 char character = matches[3].str()[0];
                 std::string password = matches[4].str();
                 
@@ -48,8 +48,8 @@ uint32_t PartOne()
                     return;
                 }
                 
-                uint32_t countOfCharactersMet = 0;
-                for (uint32_t i = 0; i < password.size(); i++)
+                unsigned int countOfCharactersMet = 0;
+                for (unsigned int i = 0; i < password.size(); i++)
                 {
                     if (password[i] == character)
                     {
@@ -71,9 +71,9 @@ uint32_t PartOne()
     return result;
 }
 
-uint32_t PartTwo()
+unsigned int PartTwo()
 {
-    uint32_t result = 0;
+    unsigned int result = 0;
     
     std::regex reg("(\\d+)-(\\d+) (\\D): (.*)");
     
@@ -85,8 +85,8 @@ uint32_t PartTwo()
                     spdlog::error("Search for regex failed");
                 }
             
-                uint32_t first = stoi(matches[1].str());
-                uint32_t second = stoi(matches[2].str());
+                unsigned int first = stoi(matches[1].str());
+                unsigned int second = stoi(matches[2].str());
                 char character = matches[3].str()[0];
                 std::string password = matches[4].str();
                 

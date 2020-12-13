@@ -9,17 +9,17 @@
 
 void ExecuteDayEight();
 
-int32_t GetAccumulatorValueBeforeLoop(const std::string& filename);
-int32_t GetAccumulatorValueWithoutError(const std::string& filename);
+int GetAccumulatorValueBeforeLoop(const std::string& filename);
+int GetAccumulatorValueWithoutError(const std::string& filename);
 
 class HandheldDevice {
 private:
-    int32_t Accumulator = 0;
-    int32_t IndexPointer = 0;
+    int Accumulator = 0;
+    int IndexPointer = 0;
     bool ErrorFlag;
     
 public:
-    int32_t GetAccumulator() const { return Accumulator; }
+    int GetAccumulator() const { return Accumulator; }
     bool GetErrorFlag() const { return ErrorFlag; }
     
     void Restart();

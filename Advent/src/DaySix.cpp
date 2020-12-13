@@ -9,8 +9,8 @@ void ExecuteDaySix()
     spdlog::info("Day 6 Challenge");
     spdlog::info("---------------");
     
-    uint32_t result = GetSumOfAnswers("./data/input_day_six.txt");
-    uint32_t resultAlt = GetSumOfCommonAnswers("./data/input_day_six.txt");
+    unsigned int result = GetSumOfAnswers("./data/input_day_six.txt");
+    unsigned int resultAlt = GetSumOfCommonAnswers("./data/input_day_six.txt");
     
     spdlog::info("Result one: {}", result);
     spdlog::info("Result two: {}", resultAlt);
@@ -18,9 +18,9 @@ void ExecuteDaySix()
     spdlog::info("");
 }
 
-int32_t GetSumOfAnswers(const std::string& filename)
+int GetSumOfAnswers(const std::string& filename)
 {
-    int32_t sum = 0;
+    int sum = 0;
     for (const std::string& groupAnswers : GetAnswers(filename))
     {
         sum += GetGroupSum(groupAnswers);
@@ -29,7 +29,7 @@ int32_t GetSumOfAnswers(const std::string& filename)
     return sum;
 }
 
-int32_t GetGroupSum(const std::string& groupAnswers)
+int GetGroupSum(const std::string& groupAnswers)
 {
     std::string copyAnswers = groupAnswers;
     std::sort(copyAnswers.begin(), copyAnswers.end());
@@ -40,13 +40,13 @@ int32_t GetGroupSum(const std::string& groupAnswers)
     return copyAnswers.size();
 }
 
-int32_t GetSumOfCommonAnswers(const std::string& filename)
+int GetSumOfCommonAnswers(const std::string& filename)
 {
-    int32_t sum = 0;
+    int sum = 0;
     std::vector<std::string> answers = GetAnswers(filename);
-    std::vector<int32_t> sizes = GetGroupSizes(filename);
+    std::vector<int> sizes = GetGroupSizes(filename);
     
-    for (int32_t i = 0; i < answers.size(); i++)
+    for (int i = 0; i < answers.size(); i++)
     {
         sum += GetCommonGroupSum(answers[i], sizes[i]);
     }
@@ -54,17 +54,17 @@ int32_t GetSumOfCommonAnswers(const std::string& filename)
     return sum;
 }
 
-int32_t GetCommonGroupSum(const std::string& groupAnswers, int32_t countOfPeople)
+int GetCommonGroupSum(const std::string& groupAnswers, int countOfPeople)
 {
     std::string copyAnswers = groupAnswers;
     std::sort(copyAnswers.begin(), copyAnswers.end());
     
     char currentChar = copyAnswers[0];
-    int32_t counter = 0;
+    int counter = 0;
     
-    int32_t commonAnswers = 0;
+    int commonAnswers = 0;
     
-    for (int32_t i = 0; i < copyAnswers.size(); i++)
+    for (int i = 0; i < copyAnswers.size(); i++)
     {
         if (currentChar == copyAnswers[i])
         {
@@ -110,11 +110,11 @@ std::vector<std::string> GetAnswers(const std::string& filename)
     return result;
 }
 
-std::vector<int32_t> GetGroupSizes(const std::string& filename)
+std::vector<int> GetGroupSizes(const std::string& filename)
 {
-    std::vector<int32_t> result;
+    std::vector<int> result;
     
-    int32_t count = 0;
+    int count = 0;
     
     ReadFileLineByLine(
             filename, [&](const std::string& line) {

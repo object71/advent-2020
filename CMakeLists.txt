@@ -1,5 +1,4 @@
 cmake_minimum_required(VERSION 3.16)
-set(CMAKE_TOOLCHAIN_FILE ./vcpkg/scripts/buildsystems/vcpkg.cmake)
 
 project(Advent2020)
 
@@ -11,7 +10,6 @@ SET(IS_MAIN (${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_CURRENT_SOURCE_DIR}))
 
 find_package(fmt CONFIG REQUIRED)
 find_package(spdlog CONFIG REQUIRED)
-find_package(GTest CONFIG REQUIRED)
 find_package(Catch2 CONFIG REQUIRED)
 
 find_package(PythonInterp REQUIRED)
@@ -56,9 +54,3 @@ add_custom_target(Solution ALL
                   COMMAND ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/scripts/post_build.py ${Tests_BINARY_DIR}
                   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 
-if (IS_MAIN)
-    add_custom_command(TARGET Solution POST_BUILD
-                       COMMAND ctest -C Debug
-                       WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
-                       )
-endif ()

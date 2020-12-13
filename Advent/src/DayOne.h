@@ -7,11 +7,11 @@
 
 #include "Utilities.h"
 
-int32_t AdventDayOne(int32_t targetNumber);
-int32_t AdventDayOneAlt(int32_t targetNumber);
+int AdventDayOne(int targetNumber);
+int AdventDayOneAlt(int targetNumber);
 
 bool FindTwoNumbersThatSumToTarget(
-        int32_t targetNumber, std::vector<int32_t>& inputDayOne, int32_t& numberOne, int32_t& numberTwo
+        int targetNumber, std::vector<int>& inputDayOne, int& numberOne, int& numberTwo
 );
 
 void ExecuteDayOne();

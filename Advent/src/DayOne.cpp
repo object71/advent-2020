@@ -4,13 +4,13 @@
 
 #include "DayOne.h"
 
-int32_t AdventDayOne(int32_t targetNumber)
+int AdventDayOne(int targetNumber)
 {
-    std::vector<int32_t> inputDayOne;
+    std::vector<int> inputDayOne;
     ReadFileAsNumbers("./data/input_day_one.txt", inputDayOne);
     
-    int32_t numberOne = 0;
-    int32_t numberTwo = 0;
+    int numberOne = 0;
+    int numberTwo = 0;
     
     FindTwoNumbersThatSumToTarget(targetNumber, inputDayOne, numberOne, numberTwo);
     
@@ -18,18 +18,18 @@ int32_t AdventDayOne(int32_t targetNumber)
 }
 
 bool FindTwoNumbersThatSumToTarget(
-        int32_t targetNumber, std::vector<int32_t>& inputDayOne, int32_t& numberOne, int32_t& numberTwo
+        int targetNumber, std::vector<int>& inputDayOne, int& numberOne, int& numberTwo
 )
 {
     std::sort(inputDayOne.begin(), inputDayOne.end());
     
-    for (uint32_t k = inputDayOne.size() - 1; k > 0; k--)
+    for (unsigned int k = inputDayOne.size() - 1; k > 0; k--)
     {
-        uint32_t currentN = inputDayOne[k];
+        unsigned int currentN = inputDayOne[k];
         
-        for (uint32_t i = 0; k != i; i++)
+        for (unsigned int i = 0; k != i; i++)
         {
-            uint32_t testedN = inputDayOne[i];
+            unsigned int testedN = inputDayOne[i];
             
             if (currentN + testedN > targetNumber)
             {
@@ -48,29 +48,29 @@ bool FindTwoNumbersThatSumToTarget(
     return false;
 }
 
-int32_t AdventDayOneAlt(int32_t targetNumber)
+int AdventDayOneAlt(int targetNumber)
 {
-    std::vector<int32_t> inputDayOne;
+    std::vector<int> inputDayOne;
     ReadFileAsNumbers("./data/input_day_one.txt", inputDayOne);
     
     std::sort(inputDayOne.begin(), inputDayOne.end());
     
-    for (uint32_t x = inputDayOne.size() - 1; x > 0; x--)
+    for (unsigned int x = inputDayOne.size() - 1; x > 0; x--)
     {
-        int32_t firstN = inputDayOne[x];
+        int firstN = inputDayOne[x];
         
-        for (uint32_t y = 0; y != x - 1; y++)
+        for (unsigned int y = 0; y != x - 1; y++)
         {
-            int32_t secondN = inputDayOne[y];
+            int secondN = inputDayOne[y];
             
             if (firstN + secondN > targetNumber)
             {
                 break;
             }
             
-            for (uint32_t z = y + 1; z != x; z++)
+            for (unsigned int z = y + 1; z != x; z++)
             {
-                int32_t thirdN = inputDayOne[z];
+                int thirdN = inputDayOne[z];
                 
                 if (firstN + secondN + thirdN > targetNumber)
                 {
@@ -92,9 +92,9 @@ void ExecuteDayOne()
     spdlog::info("Day 1 Challenge");
     spdlog::info("---------------");
     
-    uint32_t targetNumber = 2020;
-    uint32_t result = AdventDayOne(targetNumber);
-    uint32_t resultAlt = AdventDayOneAlt(targetNumber);;
+    unsigned int targetNumber = 2020;
+    unsigned int result = AdventDayOne(targetNumber);
+    unsigned int resultAlt = AdventDayOneAlt(targetNumber);;
     
     spdlog::info("Result one: {}", result);
     spdlog::info("Result two: {}", resultAlt);

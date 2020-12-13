@@ -11,7 +11,7 @@ SCENARIO("Day four test case", "[advent]")
     {
         std::vector<std::string> passports = GetPassports("./data/input_day_four_test.txt");
         REQUIRE(passports.size() == 4);
-        uint32_t count = CountOfValidPassports(passports);
+        unsigned int count = CountOfValidPassports(passports);
         REQUIRE(count == 2);
     }
     
@@ -19,7 +19,7 @@ SCENARIO("Day four test case", "[advent]")
     {
         std::vector<std::string> passports = GetPassports("./data/input_day_four_test_alt.txt");
         REQUIRE(passports.size() == 8);
-        uint32_t count = CountOfComplexValidPassports(passports);
+        unsigned int count = CountOfComplexValidPassports(passports);
         REQUIRE(count == 4);
     }
     

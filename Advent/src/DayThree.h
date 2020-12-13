@@ -9,10 +9,10 @@
 
 void ExecuteDayThree();
 
-uint32_t CountNumberOfTrees(
-        const std::vector<int8_t>& map, const uint32_t& width, const uint32_t& height, int32_t slopeX, int32_t slopeY
+unsigned int CountNumberOfTrees(
+        const std::vector<char>& map, const unsigned int& width, const unsigned int& height, int slopeX, int slopeY
 );
 
-uint32_t CalculateMultipleSlopeAnswer(const std::vector<int8_t>& map, const uint32_t& width, const uint32_t& height);
+unsigned int CalculateMultipleSlopeAnswer(const std::vector<char>& map, const unsigned int& width, const unsigned int& height);
 
 #endif //VCPKGSKELETON_DAYTHREE_H

@@ -9,8 +9,8 @@ void ExecuteDayEight()
     spdlog::info("Day 8 Challenge");
     spdlog::info("---------------");
     
-    uint32_t result = GetAccumulatorValueBeforeLoop("./data/input_day_eight.txt");
-    uint32_t resultAlt = GetAccumulatorValueWithoutError("./data/input_day_eight.txt");
+    unsigned int result = GetAccumulatorValueBeforeLoop("./data/input_day_eight.txt");
+    unsigned int resultAlt = GetAccumulatorValueWithoutError("./data/input_day_eight.txt");
     
     spdlog::info("Result one: {}", result);
     spdlog::info("Result two: {}", resultAlt);
@@ -18,7 +18,7 @@ void ExecuteDayEight()
     spdlog::info("");
 }
 
-int32_t GetAccumulatorValueBeforeLoop(const std::string& filename)
+int GetAccumulatorValueBeforeLoop(const std::string& filename)
 {
     std::vector<std::string> code;
     ReadFileAsLines(filename, code);
@@ -29,14 +29,14 @@ int32_t GetAccumulatorValueBeforeLoop(const std::string& filename)
     return hhd.GetAccumulator();
 }
 
-int32_t GetAccumulatorValueWithoutError(const std::string& filename)
+int GetAccumulatorValueWithoutError(const std::string& filename)
 {
     std::vector<std::string> code;
     ReadFileAsLines(filename, code);
     
     HandheldDevice hhd;
     
-    for (int32_t i = 0; i < code.size(); i++)
+    for (int i = 0; i < code.size(); i++)
     {
         hhd.Restart();
         std::string line = code[i];
@@ -67,7 +67,7 @@ int32_t GetAccumulatorValueWithoutError(const std::string& filename)
 
 void HandheldDevice::ExecuteCode(const std::vector<std::string>& code)
 {
-    std::vector<int32_t> executedLines;
+    std::vector<int> executedLines;
     
     ErrorFlag = false;
     
@@ -83,7 +83,7 @@ void HandheldDevice::ExecuteCode(const std::vector<std::string>& code)
         
         std::vector<std::string> tokens = strutil::split(code[IndexPointer], " ");
         const std::string& operat = tokens[0];
-        const int32_t value = stoi(tokens[1]);
+        const int value = stoi(tokens[1]);
         
         if (operat == "acc")
         {

@@ -15,5 +15,8 @@
 #include <DaySeven.h>
 #include <DayEight.h>
 #include <DayNine.h>
+#include <DayTen.h>
+#include <DayEleven.h>
+#include <DayTwelve.h>
 
 #endif //RAYLIBDOOM_MAIN_H

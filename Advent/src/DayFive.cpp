@@ -4,17 +4,17 @@
 
 #include "DayFive.h"
 
-const uint32_t MAX_COLUMNS = 7;
+const unsigned int MAX_COLUMNS = 7;
 
-uint32_t GetFreeSeatID();
+unsigned int GetFreeSeatID();
 
 void ExecuteDayFive()
 {
     spdlog::info("Day 5 Challenge");
     spdlog::info("---------------");
     
-    uint32_t result = GetMaxSeatID("./data/input_day_five.txt");
-    uint32_t resultAlt = GetFreeSeatID();
+    unsigned int result = GetMaxSeatID("./data/input_day_five.txt");
+    unsigned int resultAlt = GetFreeSeatID();
     
     spdlog::info("Result one: {}", result);
     spdlog::info("Result two: {}", resultAlt);
@@ -22,14 +22,14 @@ void ExecuteDayFive()
     spdlog::info("");
 }
 
-uint32_t GetFreeSeatID()
+unsigned int GetFreeSeatID()
 {
-    std::vector<int32_t> takenSeats;
+    std::vector<int> takenSeats;
     GetTakenSeatIDs("./data/input_day_five.txt", takenSeats);
     
     std::sort(takenSeats.begin(), takenSeats.end());
     
-    for (int32_t i = 0; i < takenSeats.size() - 1; i++)
+    for (int i = 0; i < takenSeats.size() - 1; i++)
     {
         if (takenSeats[i + 1] - takenSeats[i] > 1)
         {
@@ -40,12 +40,12 @@ uint32_t GetFreeSeatID()
     return -1;
 }
 
-int32_t GetMaxSeatID(const std::string& filename)
+int GetMaxSeatID(const std::string& filename)
 {
-    int32_t max = 0;
+    int max = 0;
     ReadFileLineByLine(
             filename, [&](const std::string& line) {
-                int32_t currentID = GetSeatID(line);
+                int currentID = GetSeatID(line);
                 if (currentID > max)
                 {
                     max = currentID;
@@ -56,7 +56,7 @@ int32_t GetMaxSeatID(const std::string& filename)
     return max;
 }
 
-void GetTakenSeatIDs(const std::string& filename, std::vector<int32_t>& seatIDs)
+void GetTakenSeatIDs(const std::string& filename, std::vector<int>& seatIDs)
 {
     ReadFileLineByLine(
             filename, [&](const std::string& line) {
@@ -65,22 +65,22 @@ void GetTakenSeatIDs(const std::string& filename, std::vector<int32_t>& seatIDs)
     );
 }
 
-int32_t GetSeatID(const std::string& boardingPass)
+int GetSeatID(const std::string& boardingPass)
 {
-    int32_t column = 0;
-    int32_t row = 0;
+    int column = 0;
+    int row = 0;
     GetSeatColumnAndRow(boardingPass, column, row);
     
     return row * 8 + column;
 }
 
-void GetSeatColumnAndRow(const std::string& boardingPass, int32_t& column, int32_t& row)
+void GetSeatColumnAndRow(const std::string& boardingPass, int& column, int& row)
 {
     column = 0;
     row = 0;
     
-    int32_t mask = 0b1000000;
-    for (int32_t i = 0; i < 7; i++)
+    int mask = 0b1000000;
+    for (int i = 0; i < 7; i++)
     {
         if (boardingPass[i] == 'B')
         {
@@ -91,7 +91,7 @@ void GetSeatColumnAndRow(const std::string& boardingPass, int32_t& column, int32
     }
     
     mask = 0b100;
-    for (int32_t i = 7; i < 10; i++)
+    for (int i = 7; i < 10; i++)
     {
         if (boardingPass[i] == 'R')
         {

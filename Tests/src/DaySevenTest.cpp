@@ -32,7 +32,7 @@ SCENARIO("Day seven test case", "[advent]")
     
     WHEN("Second condition")
     {
-        int32_t count = CountOfBagsThatMustBeContained(
+        int count = CountOfBagsThatMustBeContained(
                 ProcessBagRules("./data/input_day_seven_test_alt.txt"), "shiny gold"
         );
         REQUIRE(count == 126);

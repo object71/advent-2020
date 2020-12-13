@@ -7,7 +7,7 @@
 
 bool HeightIsValid(const std::string& value);
 
-bool MatchesRegexAndSize(const std::string& value, const std::string& regex, uint32_t size);
+bool MatchesRegexAndSize(const std::string& value, const std::string& regex, unsigned int size);
 
 void ExecuteDayFour()
 {
@@ -15,8 +15,8 @@ void ExecuteDayFour()
     spdlog::info("---------------");
     
     std::vector<std::string> passports = GetPassports("./data/input_day_four.txt");
-    uint32_t result = CountOfValidPassports(passports);
-    uint32_t resultAlt = CountOfComplexValidPassports(passports);
+    unsigned int result = CountOfValidPassports(passports);
+    unsigned int resultAlt = CountOfComplexValidPassports(passports);
     
     spdlog::info("Result one: {}", result);
     spdlog::info("Result two: {}", resultAlt);
@@ -88,7 +88,7 @@ bool IsPassportValidComplex(const std::string& passportLine)
     
     bool valid = true;
     
-    for (uint32_t i = 0; i < tokens.size() && valid; i++)
+    for (unsigned int i = 0; i < tokens.size() && valid; i++)
     {
         std::vector<std::string> keyValuePair = strutil::split(strutil::trim_copy(tokens[i]), ':');
         std::string& key = keyValuePair[0];
@@ -107,7 +107,7 @@ bool IsPassportValidComplex(const std::string& passportLine)
     return valid;
 }
 
-bool MatchesRegexAndSize(const std::string& value, const std::string& regex, uint32_t size)
+bool MatchesRegexAndSize(const std::string& value, const std::string& regex, unsigned int size)
 {
     std::regex reg(regex);
     return std::regex_match(value, reg) && value.size() == size;
@@ -123,14 +123,14 @@ bool HeightIsValid(const std::string& value)
         return false;
     }
     
-    int32_t size = stoi(value.substr(0, value.size() - 1));
+    int size = stoi(value.substr(0, value.size() - 1));
     if (inCms) return NumberWithinValues(size, 150, 193);
     else return NumberWithinValues(size, 59, 76);
 }
 
-uint32_t CountOfValidPassports(const std::vector<std::string>& passports)
+unsigned int CountOfValidPassports(const std::vector<std::string>& passports)
 {
-    uint32_t count = 0;
+    unsigned int count = 0;
     for (const std::string& pass : passports)
     {
         count += IsPassportValid(pass);
@@ -138,9 +138,9 @@ uint32_t CountOfValidPassports(const std::vector<std::string>& passports)
     return count;
 }
 
-uint32_t CountOfComplexValidPassports(const std::vector<std::string>& passports)
+unsigned int CountOfComplexValidPassports(const std::vector<std::string>& passports)
 {
-    uint32_t count = 0;
+    unsigned int count = 0;
     for (const std::string& pass : passports)
     {
         count += IsPassportValidComplex(pass);

@@ -10,11 +10,11 @@ void ExecuteDayNine()
     spdlog::info("Day 9 Challenge");
     spdlog::info("---------------");
     
-    std::vector<int32_t> data;
+    std::vector<int> data;
     ReadFileAsNumbers("./data/input_day_nine.txt", data);
     
-    int32_t result = FindInvalidXMASNumber(data, 25);
-    int32_t resultAlt = GetAltResult(data, result);
+    int result = FindInvalidXMASNumber(data, 25);
+    int resultAlt = GetAltResult(data, result);
     
     spdlog::info("Result one: {}", result);
     spdlog::info("Result two: {}", resultAlt);
@@ -22,9 +22,9 @@ void ExecuteDayNine()
     spdlog::info("");
 }
 
-int32_t FindInvalidXMASNumber(const std::vector<int32_t>& numbers, int32_t preamble)
+int FindInvalidXMASNumber(const std::vector<int>& numbers, int preamble)
 {
-    for (int32_t i = preamble; i < numbers.size(); i++)
+    for (int i = preamble; i < numbers.size(); i++)
     {
         if (!IsNumberValid(numbers, i, preamble))
         {
@@ -35,37 +35,37 @@ int32_t FindInvalidXMASNumber(const std::vector<int32_t>& numbers, int32_t pream
     return -1;
 }
 
-bool IsNumberValid(const std::vector<int32_t>& numbers, int32_t index, int32_t preamble)
+bool IsNumberValid(const std::vector<int>& numbers, int index, int preamble)
 {
-    std::vector<int32_t> subset(preamble);
+    std::vector<int> subset(preamble);
     std::copy(numbers.begin() + index - preamble, numbers.begin() + index, subset.begin());
     
-    int32_t numberOne;
-    int32_t numberTwo;
+    int numberOne;
+    int numberTwo;
     
     bool valid = FindTwoNumbersThatSumToTarget(numbers[index], subset, numberOne, numberTwo);
     return valid && numberOne != numberTwo;
 }
 
 void FindContinuousSetOfNumbersThatAddUpToTarget(
-        const std::vector<int32_t>& numbers, int32_t target, int32_t& indexMin, int32_t& indexMax
+        const std::vector<int>& numbers, int target, int& indexMin, int& indexMax
 )
 {
-    for (int32_t i = 0; i < numbers.size() - 1; i++)
+    for (int i = 0; i < numbers.size() - 1; i++)
     {
         if (numbers[i] >= target)
         {
             continue;
         }
         
-        for (int32_t k = i + 1; k < numbers.size(); k++)
+        for (int k = i + 1; k < numbers.size(); k++)
         {
             if (numbers[k] >= target)
             {
                 continue;
             }
             
-            int32_t sum = std::accumulate(numbers.begin() + i, numbers.begin() + k + 1, 0);
+            int sum = std::accumulate(numbers.begin() + i, numbers.begin() + k + 1, 0);
             
             if (sum == target)
             {
@@ -82,14 +82,14 @@ void FindContinuousSetOfNumbersThatAddUpToTarget(
     }
 }
 
-int32_t GetAltResult(const std::vector<int32_t>& numbers, int32_t target)
+int GetAltResult(const std::vector<int>& numbers, int target)
 {
-    int32_t minIndex = 0;
-    int32_t maxIndex = 0;
+    int minIndex = 0;
+    int maxIndex = 0;
     FindContinuousSetOfNumbersThatAddUpToTarget(numbers, target, minIndex, maxIndex);
     
-    int32_t min = std::min_element(numbers.begin() + minIndex, numbers.begin() + maxIndex + 1)[0];
-    int32_t max = std::max_element(numbers.begin() + minIndex, numbers.begin() + maxIndex + 1)[0];
+    int min = std::min_element(numbers.begin() + minIndex, numbers.begin() + maxIndex + 1)[0];
+    int max = std::max_element(numbers.begin() + minIndex, numbers.begin() + maxIndex + 1)[0];
     
     return min + max;
 }

@@ -10,10 +10,10 @@
 void ExecuteDaySix();
 
 std::vector<std::string> GetAnswers(const std::string& filename);
-int32_t GetGroupSum(const std::string& groupAnswers);
-int32_t GetSumOfAnswers(const std::string& filename);
-std::vector<int32_t> GetGroupSizes(const std::string& filename);
-int32_t GetCommonGroupSum(const std::string& groupAnswers, int32_t countOfPeople);
-int32_t GetSumOfCommonAnswers(const std::string& filename);
+int GetGroupSum(const std::string& groupAnswers);
+int GetSumOfAnswers(const std::string& filename);
+std::vector<int> GetGroupSizes(const std::string& filename);
+int GetCommonGroupSum(const std::string& groupAnswers, int countOfPeople);
+int GetSumOfCommonAnswers(const std::string& filename);
 
 #endif //VCPKGSKELETON_DAYSIX_H

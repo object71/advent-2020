@@ -13,9 +13,9 @@ void ExecuteDaySeven()
     std::vector<BagRule> rules = ProcessBagRules("./data/input_day_seven.txt");
     std::vector<std::string> colorTypes;
     CountOfBagsThatContain(rules, "shiny gold", colorTypes);
-    uint32_t result = colorTypes.size();
+    unsigned int result = colorTypes.size();
     
-    uint32_t resultAlt = CountOfBagsThatMustBeContained(rules, "shiny gold");
+    unsigned int resultAlt = CountOfBagsThatMustBeContained(rules, "shiny gold");
     
     spdlog::info("Result one: {}", result);
     spdlog::info("Result two: {}", resultAlt);
@@ -76,11 +76,11 @@ void CountOfBagsThatContain(
         const std::vector<BagRule>& rules, const std::string& bagColor, std::vector<std::string>& colorTypes
 )
 {
-    for (int32_t i = 0; i < rules.size(); i++)
+    for (int i = 0; i < rules.size(); i++)
     {
         const BagRule& currentRule = rules[i];
         
-        for (int32_t k = 0; k < currentRule.BagTypes.size(); k++)
+        for (int k = 0; k < currentRule.BagTypes.size(); k++)
         {
             if (currentRule.BagTypes[k].second == bagColor)
             {
@@ -96,10 +96,10 @@ void CountOfBagsThatContain(
     }
 }
 
-int32_t CountOfBagsThatMustBeContained(const std::vector<BagRule>& rules, const std::string& bagColor)
+int CountOfBagsThatMustBeContained(const std::vector<BagRule>& rules, const std::string& bagColor)
 {
-    std::queue<std::pair<int32_t, BagRule>> rulesToProcess;
-    int32_t count = 0;
+    std::queue<std::pair<int, BagRule>> rulesToProcess;
+    int count = 0;
     
     auto it = std::find_if(rules.begin(), rules.end(), [&bagColor](const BagRule& x) { return x.BagColor == bagColor; });
     if (it == rules.end())
@@ -112,7 +112,7 @@ int32_t CountOfBagsThatMustBeContained(const std::vector<BagRule>& rules, const 
     while (rulesToProcess.size() > 0)
     {
         const BagRule& currentRule = rulesToProcess.front().second;
-        for (std::pair<int32_t, std::string> ruleLine : currentRule.BagTypes)
+        for (std::pair<int, std::string> ruleLine : currentRule.BagTypes)
         {
             count += (rulesToProcess.front().first * ruleLine.first);
             const std::string inspectedColor = ruleLine.second;
