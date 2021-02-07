@@ -18,5 +18,6 @@
 #include <DayTen.h>
 #include <DayEleven.h>
 #include <DayTwelve.h>
+#include <DayThirteen.h>
 
 #endif //RAYLIBDOOM_MAIN_H

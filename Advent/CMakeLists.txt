@@ -23,7 +23,7 @@ add_library(Advent STATIC
             src/DayNine.cpp
             src/DayNine.h
             src/DayTen.cpp
-            src/DayTen.h src/DayEleven.cpp src/DayEleven.h src/DayTwelve.cpp src/DayTwelve.h)
+            src/DayTen.h src/DayEleven.cpp src/DayEleven.h src/DayTwelve.cpp src/DayTwelve.h src/DayThirteen.cpp src/DayThirteen.h)
 
 target_link_libraries(Advent PUBLIC fmt::fmt spdlog::spdlog)
 
